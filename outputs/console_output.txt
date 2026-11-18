@@ -1,0 +1,56 @@
+Grid size: 11 x 20 | start (5, 0) | goal (5, 19)
+. . # # # # # # # # # # # # # # # # # #
+. . . . . . . . . . . . . . . . . . . .
+. . # # # # # # # # . # # # # # # # . .
+. . # # # # # # # # . # # # # # # # . .
+. . # # # # # # # # . # # # # # # # . .
+S . C C C C C C C C C C C C C C C C . G
+. . # # # # # # # # . # # # # # # # . .
+. . # # # # # # # # . # # # # # # # . .
+. . X X X # # # # # . # # # # # # # . .
+. . X X X . . . . . . . . . . . C C . .
+. . # # # # # # # # # # # # # # # # # #
+Actions from start: ['Up', 'Down', 'Right']
+Manhattan distance start -> goal: 19
+BFS     route found: 19 moves, cost 67, 73 nodes expanded
+DFS     route found: 45 moves, cost 72, 80 nodes expanded
+Greedy  route found: 19 moves, cost 67, 20 nodes expanded
+A*      route found: 27 moves, cost 27, 49 nodes expanded
+Short, crowded (middle aisle)  : 19 moves, cost 67
+Longer, open (top aisle)       : 27 moves, cost 27
+
+BFS chose  : 19 moves, cost 67  -> fewest moves
+A* chose   : 27 moves, cost 27  -> lowest cost
+BFS    : NO ROUTE FOUND (searched 55 reachable cells)
+DFS    : NO ROUTE FOUND (searched 55 reachable cells)
+Greedy : NO ROUTE FOUND (searched 55 reachable cells)
+A*     : NO ROUTE FOUND (searched 55 reachable cells)
+Trolley placed at (1, 14) (on the initial A* route, not on the robot map)
+
+  Trolley detected at (1, 14) while at (1, 13) -> replan #1 -> new route of 24 moves
+  Goal reached     : True
+  Moves travelled  : 41
+  Cost travelled   : 50
+  Replans          : 1
+  Nodes expanded   : 95 (all A* searches)
+Hidden trolleys at (1, 12), (5, 12) and (9, 12): top, middle and bottom aisles
+
+  Trolley detected at (1, 12) while at (1, 11) -> replan #1 -> new route of 22 moves
+  Trolley detected at (9, 12) while at (9, 11) -> replan #2 -> new route of 14 moves
+  Trolley detected at (5, 12) while at (5, 11) -> replan #3 -> NO ALTERNATIVE ROUTE
+  Goal reached     : False
+  Moves travelled  : 31
+  Cost travelled   : 40
+  Replans          : 3
+  Nodes expanded   : 183 (all A* searches)
+Search algorithms on the warehouse grid
+Algorithm   Goal reached   Moves   Cost   Nodes expanded   Time (ms)
+BFS                 True      19     67               73       0.199
+DFS                 True      45     72               80       0.183
+Greedy              True      19     67               20       0.063
+A*                  True      27     27               49       0.125
+
+Trolley experiments (A* with replanning)
+Scenario                      Goal reached   Moves   Cost   Nodes expanded  Replans   Time (ms)
+A: one trolley                        True      41     50               95        1       3.941
+B: every aisle blocked               False      31     40              183        3       0.704
